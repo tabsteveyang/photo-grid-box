@@ -1,0 +1,50 @@
+{
+  "name": "photo-grid-box",
+  "version": "1.0.0",
+  "description": "A ReactJS flickr-like photo array showcase module.",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p --env production",
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabsteveyang/photo-grid-box.git"
+  },
+  "keywords": [
+    "flickr",
+    "reactJS",
+    "photo",
+    "slide",
+    "grid",
+    "RWD"
+  ],
+  "author": "Steven T <tabsteveyang@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/tabsteveyang/photo-grid-box/issues"
+  },
+  "homepage": "https://github.com/tabsteveyang/photo-grid-box#readme",
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1",
+    "css-loader": "0.28.4",
+    "express": "4.15.4",
+    "extract-text-webpack-plugin": "3.0.0",
+    "node-sass": "4.5.3",
+    "normalize.css": "7.0.0",
+    "react": "^16.1.1",
+    "react-addons-shallow-compare": "15.6.0",
+    "react-dates": "12.7.0",
+    "react-dom": "^16.1.1",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.18.2",
+    "webpack": "3.1.0"
+  }
+}
