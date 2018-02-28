@@ -1,6 +1,5 @@
 # photo-grid-box
 A ReactJS flickr-like photo array showcase module.<br/>
-1.0.0 is the latest release on npm (https://www.npmjs.com/package/photo-grid-box)
 
 ## Install
 ```shell
