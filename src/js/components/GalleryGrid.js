@@ -1,12 +1,5 @@
-import 'core-js/es6/map';
-import 'core-js/es6/set';
-
-import React from 'react';
-import ReactDOM from 'react-dom';
 import GalleryImg from './GalleryImg';
 import GalleryModal from './GalleryModal';
-import 'normalize.css/normalize.css';
-import '../styles/style.scss';
 
 class GalleryGrid extends React.Component{
     constructor(props){

@@ -1,12 +1,13 @@
 {
   "name": "photo-grid-box",
-  "version": "1.0.1",
-  "description": "A ReactJS flickr-like photo array showcase module.",
+  "version": "1.1.0",
+  "description": "A Flickr-like photo array showcase module for ReactJS.",
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p --env production",
-    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+    "build": "webpack --config ./webpack.config.js --mode production",
+    "build-dev": "webpack --config ./dev/webpack.config.js",
+    "dev": "webpack server --config ./dev/webpack.config.js --watch-files ./dev/src ./src --static ./dev/build"
   },
   "repository": {
     "type": "git",
@@ -27,24 +28,28 @@
   },
   "homepage": "https://github.com/tabsteveyang/photo-grid-box#readme",
   "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1",
-    "css-loader": "0.28.4",
-    "express": "4.15.4",
-    "extract-text-webpack-plugin": "3.0.0",
-    "node-sass": "4.5.3",
-    "normalize.css": "7.0.0",
-    "react": "^16.1.1",
-    "react-addons-shallow-compare": "15.6.0",
-    "react-dates": "12.7.0",
-    "react-dom": "^16.1.1",
-    "sass-loader": "6.0.6",
-    "style-loader": "0.18.2",
-    "webpack": "3.1.0"
-  }
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "autoprefixer": "^10.3.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "expose-loader": "^3.0.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.3.0",
+    "postcss-loader": "^6.1.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.54.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1"
+  },
+  "browserslist": [
+    "last 2 version",
+    "IE 10"
+  ]
 }

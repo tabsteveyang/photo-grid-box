@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = function (env, argv) {
-  const isProduction = argv.mode === 'production';
+module.exports = function () {
   return {
     entry: path.join(__dirname, "src", "js", "index.js"),
     output: {
@@ -25,7 +25,7 @@ module.exports = function (env, argv) {
         {
           test: /\.(sc|c)ss$/,
           use: [
-            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            'style-loader',
             'css-loader',
             'postcss-loader',
             'sass-loader'
@@ -36,23 +36,26 @@ module.exports = function (env, argv) {
     resolve: {
       extensions: ['.js', '.jsx'],
       alias: {
-        '@js': path.resolve(__dirname, 'src/js/'),
-        '@scss': path.resolve(__dirname, 'src/scss/'),
-        '@components': path.resolve(__dirname, 'src/js/components/'),
-        '@dev': path.resolve(__dirname, 'dev/')
+        '@js': path.resolve(__dirname, '..', 'src/js/'),
+        '@scss': path.resolve(__dirname, '..', 'src/scss/'),
+        '@components': path.resolve(__dirname, '..', 'src/js/components/'),
+        '@dev': path.resolve(__dirname, 'dev/'),
+        '@build': path.resolve(__dirname, '..', 'build/')
       }
     },
     plugins: [
-      new MiniCssExtractPlugin({
-        filename: 'style.css'
-      }),
       new webpack.ProvidePlugin({
         React: 'react',
         ReactDom: 'react-dom',
         PropTypes: 'prop-types'
+      }),
+      new HtmlWebpackPlugin({
+        minify: false,
+        template: '/dev/src/template/index.html',
+        filename: 'index.html'
       })
     ],
-    mode: isProduction ? 'production' : 'development',
-    devtool: isProduction ? false : 'source-map'
+    mode: 'development',
+    devtool: 'source-map'
   }
 };
