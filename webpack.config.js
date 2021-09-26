@@ -44,7 +44,7 @@ module.exports = function (env, argv) {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: 'style.css'
+        filename: 'photo-grid-box.min.css'
       }),
       new webpack.ProvidePlugin({
         React: 'react',
