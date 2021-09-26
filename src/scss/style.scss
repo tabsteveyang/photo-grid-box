@@ -1,2 +1,31 @@
-@import './components/gallerypage';
-
+.photo-grid-box {
+  position: relative;
+  width: 100%;
+  margin: 0px auto;
+  background-color: #f3f5f6;
+  .photo-block {
+    display: inline-block;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    &--clickable {
+      cursor: pointer;
+    }
+    &__panel{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity .3s;
+      overflow: hidden;
+    }
+    &:hover {
+      .photo-block {
+        &__panel {
+          opacity: 1;
+        }  
+      }      
+    }
+  }
+}

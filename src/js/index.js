@@ -1,4 +1,4 @@
 import '@scss/style.scss';
-import GalleryGrid from '@components/GalleryGrid'
+import PhotoGridBox from '@components/PhotoGridBox'
 
-export default GalleryGrid
+export default PhotoGridBox
