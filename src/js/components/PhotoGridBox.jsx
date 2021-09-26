@@ -17,7 +17,7 @@ const PhotoGridBox = ({
 
   useEffect(() => {
     triggerRender()
-  }, [imgs])
+  }, [imgs, imgOnClick, panelHTMLSetter, rowGap, colGap, showUnCompleteRow])
   useEffect(() => {
     let timeout
     const resizeEvent = () => {
@@ -182,7 +182,7 @@ const PhotoGridBox = ({
         let children = null
         let cursorStyle = ''
         if (imgOnClick) {
-          onClick = () => imgOnClick(imgConfig)
+          onClick = (e) => imgOnClick(e, imgConfig)
           cursorStyle = 'pointer'
         }
         if (panelHTMLSetter) children = panelHTMLSetter(imgConfig) || null
