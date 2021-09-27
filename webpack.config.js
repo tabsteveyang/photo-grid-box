@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -9,7 +8,10 @@ module.exports = function (env, argv) {
     output: {
       path: path.join(__dirname, "build"),
       filename: 'index.js',
-      libraryTarget: 'commonjs2'
+      library: {
+        name: 'photoGridBox',
+        type: 'umd'
+      }
     },
     module: {
       rules: [{
@@ -38,18 +40,13 @@ module.exports = function (env, argv) {
       alias: {
         '@js': path.resolve(__dirname, 'src/js/'),
         '@scss': path.resolve(__dirname, 'src/scss/'),
-        '@components': path.resolve(__dirname, 'src/js/components/'),
-        '@dev': path.resolve(__dirname, 'dev/')
+        '@components': path.resolve(__dirname, 'src/js/components/')
       }
     },
+    externals: ['react', 'react-dom'],
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'photo-grid-box.min.css'
-      }),
-      new webpack.ProvidePlugin({
-        React: 'react',
-        ReactDom: 'react-dom',
-        PropTypes: 'prop-types'
       })
     ],
     mode: isProduction ? 'production' : 'development',

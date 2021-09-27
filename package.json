@@ -6,9 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config ./webpack.config.js --mode production",
-    "build-dev": "webpack --config ./webpack.config.js",
-    "dev-build": "webpack --config ./dev/webpack.config.js",
-    "dev": "webpack server --config ./dev/webpack.config.js --watch-files ./dev/src ./src --static ./dev/build"
+    "build-dev": "webpack --config ./webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +26,10 @@
     "url": "https://github.com/tabsteveyang/photo-grid-box/issues"
   },
   "homepage": "https://github.com/tabsteveyang/photo-grid-box#readme",
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
@@ -35,13 +37,10 @@
     "autoprefixer": "^10.3.5",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
-    "expose-loader": "^3.0.0",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.3.0",
     "postcss-loader": "^6.1.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",
