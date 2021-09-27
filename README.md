@@ -1,78 +1,89 @@
 # photo-grid-box
-A ReactJS flickr-like photo array showcase module.<br/>
+A Flickr-like photo array showcase module for ReactJS.<br/>
+
+## Before Update
+- If you are migrating from the old version, please notice the version 2 is very different from the previous versions.
 
 ## Install
 ```shell
 $ npm install photo-grid-box
-$ cd [the root path of your react project]
-$ cp node_modules/photo-grid-box/build/styles.css public/photogridbox.css
 ```
+
+### HTML
+#### There are two ways to get the CSS file:
+  1. Copy or reference the file under /node_modules/photo-grid-box/build/
+  2. Download them from the build folder in the GitHub repo
+#### After getting the file, reference it in a HTML file
 ```html
 <!Doctype html>
 <html>
 <head>
-    <!--link to photo-grid-box module css file (need to be copied manually)-->
-    <link rel="stylesheet" type="text/css" href="/photogridbox.css" />
+  <link rel="stylesheet" type="text/css" href="[pathToTheFilesFolder]/photo-grid-box.min.css" />
 ...
 ```
-<h6>Steps:</h6>
-1. Install the module through npm<br/>
-2. After install the module, please move the build/styles.css file to the public folder of your ReactJS project, and add a css file reference in the react project's public/index.html file. You can see more details in the code example (https://github.com/tabsteveyang/photo-grid-box-demo)
+### Babel
+```js
+import PhotoGridBox from 'photo-grid-box';
+```
+### Browserify/Webpack
+```js
+const PhotoGridBox = require("photo-grid-box");
+```
+- The CSS file has to be referenced in HTML, no matter which way you decide to import the module.
 
 ## Usage
 ```js
-import React from 'react';
-import GalleryGrid from 'photo-grid-box'; //import the module.
-
-//Create an array with several object elements, each element has to have an url and vertical attribute.
-//These two attributes are essential:
-//1. url: the url attribute store the link of the picture.
-//    --the example uses Flickr as the image file hosting service.
-//    --please use the img src at the Flickr album page to get the greatest result. 
-//2. vertical: the vertical attribute store the info of the image, tell the module that the image is vertical or not.
-const files = [
-    {
+const imgs = [
+  // use an object as an element allows you to to build some customized feature
+  {
     url: "https://c1.staticflickr.com/1/699/22812601591_12ca1ee7cf_n.jpg",
-    vertical: false,
-    },
-    {
-    url: "https://c1.staticflickr.com/1/573/22409354059_ba46782c8f_n.jpg",
-    vertical: false,
-    },
-    {
-    url: "https://c1.staticflickr.com/6/5704/22410267477_303a090dcd_m.jpg",
-    vertical: true,
-    },
-    {
-    url: "https://c1.staticflickr.com/1/683/22207558073_8ecdb7abc4_n.jpg",
-    vertical: false,
+    payload: {  // you can carry more information in the payload
+      title: 'mountain'
     }
+  },
+  {
+    url: "https://c1.staticflickr.com/1/573/22409354059_ba46782c8f_n.jpg",
+    payload: {
+      title: 'wall'
+    }
+  },
+  {
+    url: "https://c1.staticflickr.com/6/5704/22410267477_303a090dcd_m.jpg",
+    payload: {
+      title: 'jet'
+    }
+  },
+  "https://c1.staticflickr.com/1/683/22207558073_8ecdb7abc4_n.jpg"  // a string that point out the image's path is also acceptable
 ];
 
-//Render the module in JSX.
-//It takes two attributes, these attributes are essential:
-//1. files: reference to the array that we just created.
-//2. filckrHosted: if using Flickr as the image file hosting service, this attribute has to be true.
-//    --this module has only been tested in the case that image files are hosted on Flickr.
-const jsx = (
-    <div>
-        <GalleryGrid
-            files={files}
-            flickrHosted={true}
-        />
-    </div>
-);
+const [rowGap, setRowGap] = useState(3)
+const [colGap, setColGap] = useState(3)
+const [showUnCompleteRow, setShowUnCompleteRow] = useState(false)
 
-ReactDOM.render(jsx, document.getElementById('app-root'));
+const imgOnClick = (e, imgConfig) => {
+  console.log('img clicked!', e, imgConfig)
+}
+const panelHTMLSetter = (imgConfig) => {
+  let result = null
+  if (imgConfig && imgConfig.payload && imgConfig.payload.title) {
+    result = <div className="photo-block__panel__title">{imgConfig.payload.title}</div>
+  }
+  return result
+}
+
+ReactDom.render( 
+  <PhotoGridBox
+    imgs={imgs} // set the pictures to show
+    rowGap={rowGap} // set the height between each row (optional)
+    colGap={colGap} // set the width between each block (optional)
+    imgOnClick={imgOnClick} // the onClick event handler for each block (optional)
+    panelHTMLSetter={panelHTMLSetter} // the function that returns a JSX for adding the children on the panel (optional)
+    showUnCompleteRow={showUnCompleteRow} // In default, the PhotoGridBox will hide the last row if the last row is not complete; to make it looks more natural when loading pictures chunk by chunk. When there is no more picture to load, or for any reason, you can set the prop to true cancel the feature. (optional)
+  />,
+  document.getElementById('app')
+);
 ```
 
-## Demo
-Here is the demostration page (https://photo-grid-box-demo.herokuapp.com/)<br/>
-
-## Notice
-This module has only been tested in the case that image files are hosted on Flickr. Using another way to link to the image files could meet some problems.
-
 ## Links
-1. https://photo-grid-box-demo.herokuapp.com/<br/>
-2. https://github.com/tabsteveyang/photo-grid-box-demo<br/>
-3. https://www.npmjs.com/package/photo-grid-box<br/>
+1. https://www.npmjs.com/package/photo-grid-box
+2. https://github.com/tabsteveyang/photo-grid-box
