@@ -43,13 +43,26 @@ module.exports = function (env, argv) {
         '@components': path.resolve(__dirname, 'src/js/components/')
       }
     },
-    externals: ['react', 'react-dom'],
+    externals: {
+      "react": {
+          "commonjs": "react",
+          "commonjs2": "react",
+          "amd": "react",
+          "root": "React"
+      },
+      "react-dom": {
+          "commonjs": "react-dom",
+          "commonjs2": "react-dom",
+          "amd": "react-dom",
+          "root": "ReactDOM"
+      }
+    },
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'photo-grid-box.min.css'
       })
     ],
     mode: isProduction ? 'production' : 'development',
-    devtool: isProduction ? false : 'source-map'
+    devtool: 'source-map'
   }
 };

@@ -1,6 +1,6 @@
 {
   "name": "photo-grid-box",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Flickr-like photo array showcase module for ReactJS.",
   "main": "build/index.js",
   "scripts": {
@@ -16,7 +16,6 @@
     "flickr",
     "reactJS",
     "photo",
-    "slide",
     "grid",
     "RWD"
   ],
@@ -27,10 +26,15 @@
   },
   "homepage": "https://github.com/tabsteveyang/photo-grid-box#readme",
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
@@ -40,7 +44,6 @@
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.3.0",
     "postcss-loader": "^6.1.1",
-    "prop-types": "^15.7.2",
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",
