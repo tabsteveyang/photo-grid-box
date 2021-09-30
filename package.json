@@ -1,6 +1,6 @@
 {
   "name": "photo-grid-box",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A Flickr-like photo array showcase module for ReactJS.",
   "main": "build/index.js",
   "scripts": {
