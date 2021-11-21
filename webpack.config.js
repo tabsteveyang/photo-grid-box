@@ -11,7 +11,8 @@ module.exports = function (env, argv) {
       library: {
         name: 'photoGridBox',
         type: 'umd'
-      }
+      },
+      globalObject: 'this'
     },
     module: {
       rules: [{
