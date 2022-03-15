@@ -10,7 +10,7 @@ $ npm install photo-grid-box
 ```
 
 ### HTML
-#### There are two ways to get the CSS file:
+#### There are three ways to get the CSS file:
   1. Copy or reference the file under /node_modules/photo-grid-box/build/
   2. Download them from the build folder in the GitHub repo
 #### After getting the file, reference it in a HTML file
@@ -21,8 +21,13 @@ $ npm install photo-grid-box
   <link rel="stylesheet" type="text/css" href="[pathToTheFilesFolder]/photo-grid-box.min.css" />
 ...
 ```
+  3. import the css file from the module directly
+```js
+import 'photo-grid-box/photo-grid-box.min.css';
+```
 ### Babel
 ```js
+import 'photo-grid-box/photo-grid-box.min.css';
 import PhotoGridBox from 'photo-grid-box';
 ```
 ### Browserify/Webpack

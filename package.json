@@ -1,6 +1,6 @@
 {
   "name": "photo-grid-box",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A Flickr-like photo array showcase module for ReactJS.",
   "main": "build/index.js",
   "scripts": {
@@ -25,31 +25,34 @@
     "url": "https://github.com/tabsteveyang/photo-grid-box/issues"
   },
   "homepage": "https://github.com/tabsteveyang/photo-grid-box#readme",
+  "files": [
+    "build/photo-grid-box.min.css"
+  ],
   "peerDependencies": {
     "react": ">= 16.8.0",
     "react-dom": ">= 16.8.0"
   },
   "dependencies": {
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.6",
-    "@babel/preset-react": "^7.14.5",
-    "autoprefixer": "^10.3.5",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^6.3.0",
-    "html-webpack-plugin": "^5.3.2",
-    "mini-css-extract-plugin": "^2.3.0",
-    "postcss-loader": "^6.1.1",
-    "sass": "^1.42.1",
-    "sass-loader": "^12.1.0",
-    "style-loader": "^3.3.0",
-    "webpack": "^5.54.0",
-    "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.2.1"
+    "@babel/core": "^7.17.7",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^6.2.1",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   },
   "browserslist": [
     "last 2 version",
